@@ -26,9 +26,7 @@
    
 # 4. Установка базы
 ```
-pacstrap /mnt base base-devel linux linux-firmware
-linux-headers f2fs-tools nano git
-bash-completion grub efibootmgr networkmanager sddm
+pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano git bash-completion grub efibootmgr networkmanager sddm
 ```
 
 # 5. Chroot
