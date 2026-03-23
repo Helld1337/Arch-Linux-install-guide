@@ -26,7 +26,7 @@
    
 # 4. Установка базы
 ```
-pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano git bash-completion grub efibootmgr networkmanager sddm
+pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano git bash-completion grub efibootmgr networkmanager nftables sddm
 ```
 
 # 5. Chroot
@@ -45,7 +45,7 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 
 ```passwd [user]``` `(Установка пароля пользователя)`
 
-`/etc/sudoers (Найди строку "root ALL=(ALL:ALL) ALL", под ней напиши [user] ALL=(ALL:ALL) ALL`
+`nano /etc/sudoers (Найди строку "root ALL=(ALL:ALL) ALL", под ней напиши [user] ALL=(ALL:ALL) ALL`
 
 # 7. Локализация и время
 `nano /etc/locale.gen (расскоминтируй "ru_RU.UTF-8" и "en_US.UTF-8")`
@@ -105,5 +105,16 @@ WantedBy=multi-user.target
 
 `sudo systemctl start wakeup.service`
 
+# 13. Установка zen kernel
+`sudo pacman -S linux-zen linux-zen-headers`
 
+# 14. Установка окружения
+`sudo pacman -S gnome-shell gnome-control-center`
 
+15. Установка программ
+`sudo pacman -S kitty fish fastfetch steam`
+
+`yay -S zen-browser happ-desktop-bin`
+
+16. DPI Bypass
+```git clone https://github.com/Sergeydigl3/zapret-discord-youtube-linux.git```
