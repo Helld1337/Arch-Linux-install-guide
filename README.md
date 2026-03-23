@@ -74,3 +74,8 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 `cd yay`
 
 `makepkg -si`
+
+# 11. Полезные утилиты
+`sudo pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon amd-ucode libva-mesa-driver gamescope`
+
+# 12. Отключение 
