@@ -1,20 +1,21 @@
 # 1. Подготовка
 `nano /etc/pacman.d/mirrorlist (Комментруй все ctrl + /, расскоминтируй Russia)`
- * nano /etc/pacman.conf:
- * ParallelDownloads = 15
+`nano /etc/pacman.conf (Найди ParallelDownloads и поставь 15`
    
 # 2. Разметка диска
- * cfdisk /dev/nvme0n1 — Создание таблицы разделов GPT.
+`cfdisk /dev/nvme0n1 — Создание таблицы разделов GPT.`
    ```
    1 nvme0n1p1 512MB EFI System
    2 nvme0n1p2 60G Linux filesystem
    3 nvme0n1p3 ост. Linux Filesystem
    ```
-      
+
+   ```
  * mkfs.vfat /dev/nvme0n1p1
  * mkfs.ext4 /dev/nvme0n1p2
  * mkfs.f2fs /dev/nvme0n1p3
-   
+   ```
+
 # 3. Монтирование
  * mount /dev/nvme0n1p2 /mnt
  * mkdir -p /mnt/boot/efi && mount /dev/nvme0n1p1 /mnt/boot/efi
