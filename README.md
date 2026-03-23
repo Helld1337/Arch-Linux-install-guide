@@ -67,3 +67,10 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 ```umount -R /mnt```
 
 ```reboot```
+
+# 10. После установки
+`git clone https://aur.archlinux.org/yay.git`
+
+`cd yay`
+
+`makepkg -si`
