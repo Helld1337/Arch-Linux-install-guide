@@ -22,7 +22,7 @@
 
 ```mkdir -p /mnt/boot/efi && mount /dev/nvme0n1p1 /mnt/boot/efi```
 
-```mkdir -p /mnt/mnt/games && mount /dev/nvme0n1p3 /mnt/mnt/games```
+```mkdir -p /mnt/games && mount /dev/nvme0n1p3 /mnt/games```
    
 # 4. Установка базы
 ```
