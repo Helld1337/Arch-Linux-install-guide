@@ -1,5 +1,6 @@
 # 1. Подготовка
 `nano /etc/pacman.d/mirrorlist (Комментруй все ctrl + /, расскоминтируй Russia)`
+
 `nano /etc/pacman.conf (Найди ParallelDownloads и поставь 15`
    
 # 2. Разметка диска
