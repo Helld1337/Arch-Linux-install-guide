@@ -11,8 +11,8 @@
    ```
 
    ```
- * mkfs.vfat /dev/nvme0n1p1
- * mkfs.ext4 /dev/nvme0n1p2
+ mkfs.vfat /dev/nvme0n1p1
+ mkfs.ext4 /dev/nvme0n1p2
  * mkfs.f2fs /dev/nvme0n1p3
    ```
 
