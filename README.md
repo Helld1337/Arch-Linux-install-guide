@@ -108,6 +108,8 @@ WantedBy=multi-user.target
 # 13. Установка zen kernel
 `sudo pacman -S linux-zen linux-zen-headers`
 
+`sudo grub-mkconfig -o /boot/grub/grub.cfg`
+
 # 14. Установка окружения
 `sudo pacman -S gnome-shell gnome-control-center`
 
