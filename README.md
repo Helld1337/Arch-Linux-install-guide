@@ -4,7 +4,7 @@
 `nano /etc/pacman.conf (Найди ParallelDownloads и поставь 15`
    
 # 2. Разметка диска
-`cfdisk /dev/nvme0n1 — Создание таблицы разделов GPT.`
+`cfdisk /dev/nvme0n1 (Создание таблицы разделов GPT)`
    ```
    1 nvme0n1p1 512MB EFI System
    2 nvme0n1p2 60G Linux filesystem
@@ -19,7 +19,9 @@
 
 # 3. Монтирование
 ```mount /dev/nvme0n1p2 /mnt```
+
 ```mkdir -p /mnt/boot/efi && mount /dev/nvme0n1p1 /mnt/boot/efi```
+
 ```mkdir -p /mnt/mnt/games && mount /dev/nvme0n1p3 /mnt/mnt/games```
    
 # 4. Установка базы
