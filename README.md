@@ -26,7 +26,7 @@
    
 # 4. Установка базы
 ```
-pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano git bash-completion grub efibootmgr networkmanager nftables sddm
+pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano git bash-completion grub efibootmgr amd-ucode networkmanager nftables sddm
 ```
 
 # 5. Chroot
@@ -76,7 +76,7 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 `makepkg -si`
 
 # 11. Полезные утилиты
-`sudo pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon amd-ucode libva-mesa-driver gamescope`
+`sudo pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon libva-mesa-driver gamescope`
 
 # 12. Отключение usb wakeup
 `sudo nano /etc/systemd/system/wakeup.service`
@@ -113,10 +113,10 @@ WantedBy=multi-user.target
 # 14. Установка окружения
 `sudo pacman -S gnome-shell gnome-control-center`
 
-15. Установка программ
+# 15. Установка программ
 `sudo pacman -S kitty fish fastfetch steam`
 
 `yay -S zen-browser happ-desktop-bin`
 
-16. DPI Bypass
+# 16. DPI Bypass
 ```git clone https://github.com/Sergeydigl3/zapret-discord-youtube-linux.git```
