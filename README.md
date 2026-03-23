@@ -78,4 +78,32 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 # 11. Полезные утилиты
 `sudo pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon amd-ucode libva-mesa-driver gamescope`
 
-# 12. Отключение 
+# 12. Отключение usb wakeup
+`sudo nano /etc/systemd/system/wakeup.service`
+
+```
+[Unit]
+Description=Disable usb wake-up
+ 
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "\
+    for dev in XHC0 PTXH GPP0 GPP8 PT23 GP12 GP13; do \
+        if grep -q \"$dev.*enabled\" /proc/acpi/wakeup; then \
+            echo $dev > /proc/acpi/wakeup; \
+        fi; \
+    done"
+RemainAfterExit=yes
+ 
+[Install]
+WantedBy=multi-user.target
+```
+
+`sudo systemctl daemon-reload`
+
+`sudo systemctl enable wakeup.service`
+
+`sudo systemctl start wakeup.service`
+
+
+
