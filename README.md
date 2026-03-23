@@ -5,9 +5,9 @@
    
 # 2. Разметка диска
  * cfdisk /dev/nvme0n1 — Создание таблицы разделов GPT.
- * 1 nvme0n1p1 512MB EFI System
- * 2 nvme0n1p2 60G Linux filesystem
- * 3 nvme0n1p3 ост. Linux Filesystem
+   ```nvme0n1p1 512MB EFI System
+   2 nvme0n1p2 60G Linux filesystem
+   3 nvme0n1p3 ост. Linux Filesystem```
       
  * mkfs.vfat /dev/nvme0n1p1
  * mkfs.ext4 /dev/nvme0n1p2
