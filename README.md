@@ -68,7 +68,7 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 
 ```reboot```
 
-# 10. После установки
+# 10. Установка AUR (yay)
 `git clone https://aur.archlinux.org/yay.git`
 
 `cd yay`
