@@ -87,7 +87,6 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 zram-size = ram / 2
 compression-algorithm = zstd
 swap-priority = 100
-mount-point = /dev/zram0
 ```
 
 `sudo systemctl daemon-reload`
