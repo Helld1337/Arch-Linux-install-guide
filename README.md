@@ -78,7 +78,21 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 `makepkg -si`
 
 # 11. Полезные утилиты
-`sudo pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon libva-mesa-driver gamescope`
+`sudo pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon libva-mesa-driver gamescope zram-generator`
+
+```sudo nano /etc/systemd/zram-generator.conf``` `Настройка zram-generator`
+
+```
+[zram0]
+zram-size = ram / 2
+compression-algorithm = zstd
+swap-priority = 100
+mount-point = /dev/zram0
+```
+
+`sudo systemctl daemon-reload`
+
+`sudo systemctl start /dev/zram0`
 
 # 12. Отключение usb wakeup
 `sudo nano /etc/systemd/system/wakeup.service`
@@ -118,7 +132,7 @@ WantedBy=multi-user.target
 # 15. Установка программ
 `sudo pacman -S kitty fish fastfetch steam`
 
-`yay -S zen-browser happ-desktop-bin`
+`yay -S zen-browser proton-ge-custom-bin`
 
 # 16. DPI Bypass
 ```git clone https://github.com/Sergeydigl3/zapret-discord-youtube-linux.git```
