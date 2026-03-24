@@ -47,6 +47,8 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano
 
 `nano /etc/sudoers (Найди строку "root ALL=(ALL:ALL) ALL", под ней напиши [user] ALL=(ALL:ALL) ALL`
 
+`chown -R [user]:[user] /games`
+
 # 7. Локализация и время
 `nano /etc/locale.gen (расскоминтируй "ru_RU.UTF-8" и "en_US.UTF-8")`
 
