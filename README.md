@@ -94,6 +94,8 @@ mount-point = /dev/zram0
 
 `sudo systemctl start /dev/zram0`
 
+`zramctl` `Проверка работы`
+
 # 12. Отключение usb wakeup
 `sudo nano /etc/systemd/system/wakeup.service`
 
