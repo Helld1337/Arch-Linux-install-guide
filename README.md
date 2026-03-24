@@ -22,11 +22,13 @@
 
 ```mkdir -p /mnt/boot/efi && mount /dev/nvme0n1p1 /mnt/boot/efi```
 
+`pacstrap /mnt f2fs-tools`
+
 ```mkdir -p /mnt/games && mount /dev/nvme0n1p3 /mnt/games```
    
 # 4. Установка базы
 ```
-pacstrap /mnt base base-devel linux linux-firmware linux-headers f2fs-tools nano git bash-completion grub efibootmgr amd-ucode networkmanager nftables sddm
+pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-completion grub efibootmgr amd-ucode networkmanager nftables sddm
 ```
 
 # 5. Chroot
