@@ -113,7 +113,7 @@ WantedBy=multi-user.target
 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
 # 14. Установка окружения
-`sudo pacman -S gnome-shell gnome-control-center`
+`sudo pacman -S plasma-desktop spectacle kscreen`
 
 # 15. Установка программ
 `sudo pacman -S kitty fish fastfetch steam`
