@@ -134,7 +134,7 @@ WantedBy=multi-user.target
 # 15. Установка программ
 `sudo pacman -S kitty fish fastfetch steam`
 
-`yay -S zen-browser proton-ge-custom-bin`
+`yay -S zen-browser proton-ge-custom-bin koala-clash-bin`
 
 # 16. DPI Bypass
 ```git clone https://github.com/Sergeydigl3/zapret-discord-youtube-linux.git```
