@@ -2,6 +2,8 @@
 `nano /etc/pacman.d/mirrorlist (Комментруй все ctrl + /, расскоминтируй Russia)`
 
 `nano /etc/pacman.conf (Найди ParallelDownloads и поставь 15`
+
+`Найди и расскоминтируй [multilib] `
    
 # 2. Разметка диска
 `cfdisk /dev/nvme0n1 (Создание таблицы разделов GPT)`
@@ -24,11 +26,11 @@
 
 `pacstrap /mnt f2fs-tools`
 
-```mkdir -p /mnt/games && mount /dev/nvme0n1p3 /mnt/games```
+```mkdir -p /mnt/other && mount /dev/nvme0n1p3 /mnt/other```
    
 # 4. Установка базы
 ```
-pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-completion grub efibootmgr amd-ucode networkmanager nftables sddm
+pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-completion grub efibootmgr amd-ucode networkmanager nftables doas
 ```
 
 # 5. Chroot
@@ -37,8 +39,6 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-c
 ```arch-chroot /mnt``` `(Переход в установленную систему)`
 
 ```systemctl enable NetworkManager```
-
-```systemctl enable sddm```
    
 # 6. Пользователи
 ```passwd root``` `(Установка пароля для root.)`
@@ -47,9 +47,7 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-c
 
 ```passwd [user]``` `(Установка пароля пользователя)`
 
-`nano /etc/sudoers (Найди строку "root ALL=(ALL:ALL) ALL", под ней напиши [user] ALL=(ALL:ALL) ALL`
-
-`chown -R [user]:[user] /games`
+`chown -R [user]:[user] /other`
 
 # 7. Локализация и время
 `nano /etc/locale.gen (расскоминтируй "ru_RU.UTF-8" и "en_US.UTF-8")`
@@ -80,9 +78,9 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-c
 `makepkg -si`
 
 # 11. Полезные утилиты
-`sudo pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon libva-mesa-driver gamescope zram-generator`
+`doas pacman -S mesa lib32-mesa lib32-gamemode vulkan gamemode vulkan-radeon libva-mesa-driver gamescope zram-generator`
 
-```sudo nano /etc/systemd/zram-generator.conf``` `Настройка zram-generator`
+```doas nano /etc/systemd/zram-generator.conf``` `Настройка zram-generator`
 
 ```
 [zram0]
@@ -91,14 +89,14 @@ compression-algorithm = zstd
 swap-priority = 100
 ```
 
-`sudo systemctl daemon-reload`
+`doas systemctl daemon-reload`
 
-`sudo systemctl start /dev/zram0`
+`doas systemctl start /dev/zram0`
 
 `zramctl` `Проверка работы`
 
 # 12. Отключение usb wakeup
-`sudo nano /etc/systemd/system/wakeup.service`
+`doas nano /etc/systemd/system/wakeup.service`
 
 ```
 [Unit]
@@ -118,24 +116,26 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 ```
 
-`sudo systemctl daemon-reload`
+`doas systemctl daemon-reload`
 
-`sudo systemctl enable wakeup.service`
+`doas systemctl enable wakeup.service`
 
-`sudo systemctl start wakeup.service`
+`doas systemctl start wakeup.service`
 
 # 13. Установка zen kernel
-`sudo pacman -S linux-zen linux-zen-headers`
+`doas pacman -S linux-zen linux-zen-headers`
 
-`sudo grub-mkconfig -o /boot/grub/grub.cfg`
+`doas grub-mkconfig -o /boot/grub/grub.cfg`
 
 # 14. Установка окружения
-`sudo pacman -S plasma-desktop spectacle kscreen`
+`yay -S wayfire sfwbar`
+
+`doas pacman -S swaybg swayidle mako desktop-portal-wlr xdg-desktop-portal wl-clipboard slurp grim fuzzel brightnessctl wireplumber`
 
 # 15. Установка программ
-`sudo pacman -S kitty fish fastfetch steam`
+`doas pacman -S kitty fish steam`
 
-`yay -S zen-browser proton-ge-custom-bin koala-clash-bin vesktop-git`
+`yay -S proton-ge-custom-bin koala-clash-bin vesktop-git`
 
 # 16. DPI Bypass
 ```git clone https://github.com/Sergeydigl3/zapret-discord-youtube-linux.git```
