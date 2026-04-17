@@ -39,13 +39,19 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-c
 ```arch-chroot /mnt``` `(Переход в установленную систему)`
 
 ```systemctl enable NetworkManager```
-   
+
+```pacman -Rs sudo```
+
 # 6. Пользователи
 ```passwd root``` `(Установка пароля для root.)`
 
 ```useradd -m [user]``` `(Создание юзера)`
 
 ```passwd [user]``` `(Установка пароля пользователя)`
+
+`nano /etc/doas.conf`
+
+```permit :wheel```
 
 `chown -R [user]:[user] /other`
 
