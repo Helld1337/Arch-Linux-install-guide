@@ -140,7 +140,7 @@ WantedBy=multi-user.target
 `doas pacman -S swaybg swayidle mako desktop-portal-wlr xdg-desktop-portal wl-clipboard slurp grim fuzzel brightnessctl wireplumber`
 
 # 15. Установка программ
-`doas pacman -S kitty fish steam`
+`doas pacman -S kitty firefox steam`
 
 `yay -S proton-ge-custom-bin koala-clash-bin vesktop-git`
 
