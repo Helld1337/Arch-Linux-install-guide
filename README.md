@@ -1,9 +1,5 @@
 # 1. Подготовка
 `nano /etc/pacman.d/mirrorlist (Комментруй все ctrl + /, расскоминтируй Russia)`
-
-`nano /etc/pacman.conf (Найди ParallelDownloads и поставь 15`
-
-`Найди и расскоминтируй [multilib] `
    
 # 2. Разметка диска
 `cfdisk /dev/nvme0n1 (Создание таблицы разделов GPT)`
@@ -24,19 +20,21 @@
 
 ```mkdir -p /mnt/boot/efi && mount /dev/nvme0n1p1 /mnt/boot/efi```
 
-`pacstrap /mnt f2fs-tools`
-
 ```mkdir -p /mnt/other && mount /dev/nvme0n1p3 /mnt/other```
    
 # 4. Установка базы
 ```
-pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-completion grub efibootmgr amd-ucode networkmanager nftables doas
+pacstrap /mnt base base-devel linux linux-firmware linux-headers nano git bash-completion grub efibootmgr amd-ucode networkmanager nftables doas f2fs-tools
 ```
 
 # 5. Chroot
 ```genfstab -U /mnt >> /mnt/etc/fstab```
 
 ```arch-chroot /mnt``` `(Переход в установленную систему)`
+
+`nano /etc/pacman.conf (Найди ParallelDownloads и поставь 15`
+
+`Найди и расскоминтируй [multilib] `
 
 ```systemctl enable NetworkManager```
 
