@@ -133,14 +133,9 @@ WantedBy=multi-user.target
 `doas grub-mkconfig -o /boot/grub/grub.cfg`
 
 # 14. Установка окружения
-`yay -S wayfire sfwbar`
-
-`doas pacman -S swaybg swayidle mako desktop-portal-wlr xdg-desktop-portal wl-clipboard slurp grim fuzzel brightnessctl wireplumber`
-
-# 15. Установка программ
-`doas pacman -S kitty firefox steam`
-
-`yay -S proton-ge-custom-bin koala-clash-bin vesktop-git`
-
-# 16. DPI Bypass
-```git clone https://github.com/Sergeydigl3/zapret-discord-youtube-linux.git```
+```
+git clone https://github.com/helld1337/labwc-config
+cd labwc-config
+chmod +x setup.sh
+./setup.sh
+```
